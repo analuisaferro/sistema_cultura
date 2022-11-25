@@ -105,6 +105,45 @@ class Form_Anexo_Artista_CPF(ModelForm):
             'rg',
             
         ]
+    def clean_file_cpf(self):
+        if self.cleaned_data['file_cpf']:
+            return self.cleaned_data['file_cpf'].name.translate({ord(c): "A" for c in "!@#$%^&*()[]{};:,/<>?\|`~-=_+"}).replace(' ', '')
+        return None
+
+    def clean_file_comprovante_residencia(self):
+        if self.cleaned_data['file_comprovante_residencia']:
+            return self.cleaned_data['file_comprovante_residencia'].name.translate({ord(c): "A" for c in "!@#$%^&*()[]{};:,/<>?\|`~-=_+"}).replace(' ', '')
+        return None
+
+    def clean_file_pis(self):
+        if self.cleaned_data['file_pis']:
+            return self.cleaned_data['file_pis'].name.translate({ord(c): "A" for c in "!@#$%^&*()[]{};:,/<>?\|`~-=_+"}).replace(' ', '')
+        return None
+
+    def clean_comprovante_de_cc(self):
+        if self.cleaned_data['comprovante_de_cc']:
+            return self.cleaned_data['comprovante_de_cc'].name.translate({ord(c): "A" for c in "!@#$%^&*()[]{};:,/<>?\|`~-=_+"}).replace(' ', '')
+        return None
+
+    def clean_declaracao_n_viculo(self):
+        if self.cleaned_data['declaracao_n_viculo']:
+            return self.cleaned_data['declaracao_n_viculo'].name.translate({ord(c): "A" for c in "!@#$%^&*()[]{};:,/<>?\|`~-=_+"}).replace(' ', '')
+        return None
+
+    def clean_comprovante_iss(self):
+        if self.cleaned_data['comprovante_iss']:
+            return self.cleaned_data['comprovante_iss'].name.translate({ord(c): "A" for c in "!@#$%^&*()[]{};:,/<>?\|`~-=_+"}).replace(' ', '')
+        return None
+
+    def clean_portfolio(self):
+        if self.cleaned_data['portfolio']:
+            return self.cleaned_data['portfolio'].name.translate({ord(c): "A" for c in "!@#$%^&*()[]{};:,/<>?\|`~-=_+"}).replace(' ', '')
+        return None
+
+    def clean_rg(self):
+        if self.cleaned_data['rg']:
+            return self.cleaned_data['rg'].name.translate({ord(c): " " for c in "!@#$%^&*()[]{};:,./<>?\|`~-=_+"}).replace(' ', '')
+        return None
 
 class Form_Validade_Anexo_Artista_CPF(ModelForm):
 

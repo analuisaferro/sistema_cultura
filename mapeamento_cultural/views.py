@@ -497,6 +497,7 @@ def cadastro_etapa_3(request, id):
 
 @login_required
 def cadastro_anexo(request, id):
+    context = {}
     '''
     CPF -> instance.tipo_contratacao.id == 1
     CNPJ -> instance.tipo_contratacao.id == 2
